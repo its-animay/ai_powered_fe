@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'explore',
     component: ExploreBook,
     meta: {
-      role: 'User'
+      role: 'user'
     }
   },
   {
@@ -112,7 +112,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'user',
     component: UserDashboard,
     meta: {
-      role: 'User'
+      role: 'user'
     }
 
   },

@@ -23,13 +23,7 @@
               <option>User</option>
             </select>
           </div>
-          <div class="input-group">
-            <select v-model="membershipType">
-              <option value="" disabled>Select Membership Type</option>
-              <option>Premium</option>
-              <option>Standard</option>
-            </select>
-          </div>
+          
           
 
           <button type="submit" class="signup-button">Sign Up</button>
@@ -60,7 +54,6 @@ import NavBar from '../components/NavBar.vue';
         email: '',
         password: '',
         role: 'User',
-        membershipType: '',
         message: '', // For success or error messages
         messageType: ''
       };
@@ -75,7 +68,7 @@ import NavBar from '../components/NavBar.vue';
         membership_type: this.membershipType
         
     };
-        axios.post('http://localhost:5000/api/signup', userData)
+        axios.post('http://localhost:8080/auth/signup', userData)
         .then(() => { 
           this.setMessage('User Created successfully!', 'success');
 
@@ -112,7 +105,6 @@ setMessage(msg, type) {
       this.email = '';
       this.password = '';
       this.role = '';
-      this.membershipType = '';
     }
 },
 watch: {

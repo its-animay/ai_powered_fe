@@ -14,12 +14,25 @@
             </div>
             <button type="submit" class="login-button">Login</button>
             <button type="button" class="login-button" @click="redirectToSignup">Sign Up</button>
+            <a href="#" @click.prevent="showForgotPassword" class="forgot-password">Forgot Password?</a>
           </form>
         </div>
         <div v-if="showWidget" :class="['widget', messageType]">
           {{ message }}
         </div>
       </div>
+      <div v-if="forgotPasswordModal" class="modal">
+      <div class="modal-content">
+        <h3>Forgot Password</h3>
+        <form @submit.prevent="sendResetEmail">
+          <div class="input-group">
+            <input type="email" v-model="resetEmail" placeholder="Enter your email" required />
+          </div>
+          <button type="submit" class="login-button">Send Reset Email</button>
+          <button type="button" class="login-button cancel" @click="closeForgotPasswordModal">Cancel</button>
+        </form>
+      </div>
+    </div>
     </div>
   </template>
   
@@ -38,6 +51,8 @@
         message: '', // For success or error messages
         messageType: '',
         showWidget: false,
+        forgotPasswordModal: false,
+      resetEmail: '',
         
       };
     },
@@ -45,7 +60,7 @@
     methods: {
       async attemptLogin() {
       try {
-        const response = await axios.post('http://localhost:5000/api/login', {
+        const response = await axios.post('http://localhost:8080/auth/login', {
             username: this.username,  // Assuming you are using email to login
             password: this.password,
         });
@@ -81,6 +96,24 @@
       },
       redirectToSignup() {
       this.$router.push('/signup');
+    },
+    showForgotPassword() {
+      this.forgotPasswordModal = true;
+    },
+    closeForgotPasswordModal() {
+      this.forgotPasswordModal = false;
+      this.resetEmail = '';
+    },
+    async sendResetEmail() {
+      try {
+        const response = await axios.post('http://localhost:8080/auth/reset_password', {
+          email: this.resetEmail,
+        });
+        this.setMessage(response.data.message, 'success');
+        this.closeForgotPasswordModal();
+      } catch (error) {
+        this.setMessage(error.response?.data?.message || 'Error sending reset email', 'error');
+      }
     },
 
     
@@ -276,5 +309,49 @@ color: #007bff;
   .login-form {
     width: 90%;
   }
+}
+
+.forgot-password {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content .input-group {
+  margin-bottom: 15px;
+}
+
+.modal-content .login-button {
+  margin-top: 10px;
 }
 </style>
