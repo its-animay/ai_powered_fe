@@ -60,7 +60,7 @@
     methods: {
       async attemptLogin() {
       try {
-        const response = await axios.post('http://localhost:8080/auth/login', {
+        const response = await axios.post('https://7ac9-2401-4900-44c1-f24-e974-34fa-d08a-dda6.ngrok-free.app/auth/login', {
             username: this.username,  // Assuming you are using email to login
             password: this.password,
         });
@@ -106,7 +106,7 @@
     },
     async sendResetEmail() {
       try {
-        const response = await axios.post('http://localhost:8080/auth/reset_password', {
+        const response = await axios.post('https://7ac9-2401-4900-44c1-f24-e974-34fa-d08a-dda6.ngrok-free.app/auth/reset_password', {
           email: this.resetEmail,
         });
         this.setMessage(response.data.message, 'success');

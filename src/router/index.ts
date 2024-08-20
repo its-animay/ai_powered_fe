@@ -12,6 +12,7 @@ import EditBooks from '../views/EditBooks.vue';
 import EditEntities from '../views/EditEntities.vue'
 import LibrarianDashboard from '../views/LibrarianDashboard.vue'
 import UserDashboard from '../views/UserDashboard.vue'
+import CodeEditor from '../views/CodeEditor.vue';
 
 
 
@@ -105,6 +106,13 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       role: 'Admin'
     }
+
+  },
+  {
+    path: '/codeeditor',
+    name: 'codeeditor',
+    component: CodeEditor,
+  
 
   },
   {
