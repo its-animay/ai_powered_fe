@@ -13,6 +13,7 @@ import EditEntities from '../views/EditEntities.vue'
 import LibrarianDashboard from '../views/LibrarianDashboard.vue'
 import UserDashboard from '../views/UserDashboard.vue'
 import CodeEditor from '../views/CodeEditor.vue';
+import Summarizer from '@/views/summarizer.vue';
 
 
 
@@ -112,6 +113,13 @@ const routes: Array<RouteRecordRaw> = [
     path: '/codeeditor',
     name: 'codeeditor',
     component: CodeEditor,
+  
+
+  },
+  {
+    path: '/summarizer',
+    name: 'summarizer',
+    component: Summarizer,
   
 
   },
