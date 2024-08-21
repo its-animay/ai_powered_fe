@@ -7,10 +7,7 @@
     <div class="filters">
       <input type="text" v-model="filter.username" placeholder="Username">
       <input type="text" v-model="filter.email" placeholder="Email">
-      <select v-model="filter.membership_type" placeholder="Membership">
-        <option value="Premium">Premium</option>
-        <option value="Standard">Standard</option>
-      </select>
+      
       <button @click="applyFilters">Apply Filters</button>
     </div>
     <div class="user-table">
@@ -23,9 +20,8 @@
               <th>Username</th>
               <th>Email</th>
               <th>Role</th>
-              <th>Membership Type</th>
-              <th>Membership Start</th>
-              <th>Membership End</th>
+              <th>Last Login</th>
+              <th>User Created </th>
               <th>Action</th>
             </tr>
           </thead>
@@ -35,9 +31,8 @@
               <td>{{ user.username }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.role }}</td>
-              <td>{{ user.membership_type }}</td>
-              <td>{{ formatDateTime(user.membership_start) }}</td>
-              <td>{{ formatDateTime(user.membership_end) }}</td>
+              <td>{{ user.last_login }}</td>
+              <td>{{ formatDateTime(user.created_at) }}</td>
               <td>
                 <div class="action-dropdown">
                   <button class="action-btn">Actions</button>
@@ -136,7 +131,7 @@ export default defineComponent({
   methods: {
     async fetchUsers() {
       try {
-        const response = await fetch(`http://localhost:5000/api/users?page=${this.currentPage}&per_page=${this.perPage}`);
+        const response = await fetch(`http://localhost:8080/user/api/users?page=${this.currentPage}&per_page=${this.perPage}`);
         const data = await response.json();
         this.users = data.users;
         this.totalPages = data.total_pages;
@@ -170,7 +165,7 @@ export default defineComponent({
     },
     async updateUser(user) {
   try {
-    const response = await fetch(`http://localhost:5000/api/users/${user.id}`, {
+    const response = await fetch(`http://localhost:8080/user/api/users/${user.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -203,7 +198,7 @@ showUpdateForm(user) {
     },
 async submitUpdate() {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${this.updateUserDetails.id}`, {
+      const response = await fetch(`http://localhost:8080/user/api/users/${this.updateUserDetails.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -237,7 +232,7 @@ async submitUpdate() {
 
     async deleteUser(user) {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${user.id}`, {
+        const response = await fetch(`http://localhost:8080/user/api/users/${user.id}`, {
           method: 'DELETE',
           // Add any headers if needed
         });

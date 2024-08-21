@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <NavBar/>
+  
   <div id="app">
     <div class="container">
       <div class="question-section">
@@ -60,11 +63,14 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script setup>
+
 import { ref } from 'vue';
 import axios from 'axios';
+import NavBar from '@/components/NavBar.vue';
 
 const question = ref("Write a Python function that doubles the values in the list.");
 const testCases = ref([

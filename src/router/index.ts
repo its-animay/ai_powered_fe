@@ -53,8 +53,8 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/librarian',
-    name: 'librarian',
+    path: '/useradmin',
+    name: 'useradmin',
     component: LibrarianDashboard,
     meta: {
       role: 'Admin'

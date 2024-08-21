@@ -15,14 +15,14 @@
                     <div class="activity-container">
                         <router-link :to="{name: 'editbooks'}" class="image-container img-one">          
                             <div class="overlay">
-                              <div class="number-container">{{ counts.total_books || 'Loading...' }}</div>
+                              <div class="number-container">{{ counts.assignment_count || 'Loading...' }}</div>
                                 <h3>Books</h3>
                             </div>
                           </router-link>
                         
                         <router-link :to="{ name: 'editentities'}" class="image-container img-two">
                             <div class="overlay">
-                              <div class="number-container">{{ counts.total_authors || 'Loading...' }}</div>
+                              <div class="number-container">{{ counts.course_count || 'Loading...' }}</div>
                                 <h3>Authors</h3>
                             </div>
                           </router-link>
@@ -30,11 +30,11 @@
                         
                         <router-link :to="{ name: 'librarian' }" class="image-container img-three">
     <div class="overlay">
-      <div class="number-container">{{ counts.total_users || 'Loading...' }}</div>
+      <div class="number-container">{{ counts.user_count || 'Loading...' }}</div>
       <h3>Users</h3>
     </div>
   </router-link>
-                        <router-link :to="{ name: 'editentities'}" class="image-container img-five">
+                        <!-- <router-link :to="{ name: 'editentities'}" class="image-container img-five">
                             <div class="overlay">
                               <div class="number-container">{{ counts.total_publisher || 'Loading...' }}</div>
                                 <h3>Publisher </h3>
@@ -51,7 +51,7 @@
                               <div class="number-container">{{ counts.total_categories || 'Loading...' }}</div>
                                 <h3>Categories </h3>
                             </div>
-                        </router-link>
+                        </router-link> -->
                        
                         
                     </div>
@@ -139,7 +139,7 @@ export default defineComponent({
   mounted() {
     this.fetchCounts();
    
-    fetch('http://localhost:5000/api/chart')
+    fetch('http://localhost:8080/api/chart')
       .then(response => response.json())
       .then(data => {
         // Parse the chart JSON data
@@ -153,7 +153,7 @@ export default defineComponent({
   },
   methods: {
     fetchCounts() {
-      fetch('http://localhost:5000/api/admin/counts')
+      fetch('http://127.0.0.1:8080/info/api/stats')
         .then(response => response.json())
         .then(data => {
           this.counts = data;

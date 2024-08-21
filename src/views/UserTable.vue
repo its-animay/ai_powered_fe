@@ -10,9 +10,8 @@
             <th>Username</th>
             <th>Email</th>
             <th>Role</th>
-            <th>Membership Type</th>
-            <th>Membership Start</th>
-            <th>Membership End</th>
+            <th>Last Login</th>
+            <th>User Created</th>
           </tr>
         </thead>
         <tbody>
@@ -21,9 +20,8 @@
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.role }}</td>
-            <td>{{ user.membership_type }}</td>
-            <td>{{ user.membership_start }}</td>
-            <td>{{ user.membership_end }}</td>
+            <td>{{ user.last_login }}</td>
+            <td>{{ user.created_at }}</td>
           </tr>
         </tbody>
       </table>

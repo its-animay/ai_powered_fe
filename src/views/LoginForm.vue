@@ -60,7 +60,7 @@
     methods: {
       async attemptLogin() {
       try {
-        const response = await axios.post('https://7ac9-2401-4900-44c1-f24-e974-34fa-d08a-dda6.ngrok-free.app/auth/login', {
+        const response = await axios.post('http://127.0.0.1:8080/auth/login', {
             username: this.username,  // Assuming you are using email to login
             password: this.password,
         });

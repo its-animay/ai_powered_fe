@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-          <router-link class="navbar-brand" to="/">ALMS</router-link>
+          <router-link class="navbar-brand" to="/">AILMS</router-link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                           Utilities 
                       </router-link>
                       <ul class="dropdown-menu">
-                          <li><router-link class="dropdown-item" to="/librarian">Users</router-link></li>
+                          <li><router-link class="dropdown-item" to="/useradmin">Users</router-link></li>
                           <li><router-link class="dropdown-item" to="/editentities">Author-Publisher-Categories</router-link></li>
                           <li><router-link class="dropdown-item" to="/addentities">Add Entities</router-link></li>
                           <li><router-link class="dropdown-item" to="/borrow">Borrow records</router-link></li>
