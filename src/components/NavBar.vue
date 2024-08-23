@@ -29,10 +29,8 @@
                       </router-link>
                       <ul class="dropdown-menu">
                           <li><router-link class="dropdown-item" to="/useradmin">Users</router-link></li>
-                          <li><router-link class="dropdown-item" to="/editentities">Author-Publisher-Categories</router-link></li>
-                          <li><router-link class="dropdown-item" to="/addentities">Add Entities</router-link></li>
-                          <li><router-link class="dropdown-item" to="/borrow">Borrow records</router-link></li>
-                          <li><router-link class="dropdown-item" to="/addbook">New books</router-link></li>
+                          <li><router-link class="dropdown-item" to="/explore">Courses</router-link></li>
+                          <li><router-link class="dropdown-item" to="/summarizer">Transcript <Summary></Summary></router-link></li>
                       </ul>
                   </li>
 

@@ -9,26 +9,26 @@
               
                 <div class="activities">
 
-                    <h1>Popular Insights</h1>
-                    <div id="chart"></div>
+                    <!-- <h1>Popular Insights</h1>
+                    <div id="chart"></div> -->
                     
                     <div class="activity-container">
-                        <router-link :to="{name: 'editbooks'}" class="image-container img-one">          
+                        <!-- <router-link :to="{name: 'editbooks'}" class="image-container img-one">          
                             <div class="overlay">
                               <div class="number-container">{{ counts.assignment_count || 'Loading...' }}</div>
                                 <h3>Books</h3>
                             </div>
-                          </router-link>
+                          </router-link> -->
                         
-                        <router-link :to="{ name: 'editentities'}" class="image-container img-two">
+                        <router-link :to="{ name: 'explore'}" class="image-container img-two">
                             <div class="overlay">
                               <div class="number-container">{{ counts.course_count || 'Loading...' }}</div>
-                                <h3>Authors</h3>
+                                <h3>Courses</h3>
                             </div>
                           </router-link>
                         <!-- Running -->
                         
-                        <router-link :to="{ name: 'librarian' }" class="image-container img-three">
+                        <router-link :to="{ name: 'useradmin' }" class="image-container img-three">
     <div class="overlay">
       <div class="number-container">{{ counts.user_count || 'Loading...' }}</div>
       <h3>Users</h3>
@@ -95,17 +95,6 @@
                 </div>
                 <img class="card-img" src="https://images.pexels.com/photos/3831730/pexels-photo-3831730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
               </div>
-              <div class="card">
-                <div class="card-user-info">
-                </div>
-                <img class="card-img" src="https://images.pexels.com/photos/6185656/pexels-photo-6185656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-              </div>
-              <div class="card">
-                <div class="card-user-info">
-                </div>
-                <img class="card-img" src="https://images.pexels.com/photos/7173743/pexels-photo-7173743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-              </div>
-
               <div class="card card-two">
                 <div class="card-user-info">
                   

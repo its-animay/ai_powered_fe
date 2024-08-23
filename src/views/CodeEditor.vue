@@ -98,7 +98,7 @@ const runCode = async () => {
 
   try {
     const response = await axios.post(
-      'https://7ac9-2401-4900-44c1-f24-e974-34fa-d08a-dda6.ngrok-free.app/api/evaluate',
+      'http://127.0.0.1:8080/api/evaluate',
       {
         code: code.value,
         test_cases: testCases.value,

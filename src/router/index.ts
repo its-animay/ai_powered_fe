@@ -14,6 +14,7 @@ import LibrarianDashboard from '../views/LibrarianDashboard.vue'
 import UserDashboard from '../views/UserDashboard.vue'
 import CodeEditor from '../views/CodeEditor.vue';
 import Summarizer from '@/views/summarizer.vue';
+import CourseList from '@/views/CourseList.vue';
 
 
 
@@ -40,6 +41,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/explore',
     name: 'explore',
     component: ExploreBook,
+    meta: {
+      role: 'Admin'
+    }
+  },
+  {
+    path: '/course',
+    name: 'course',
+    component: CourseList,
     meta: {
       role: 'user'
     }

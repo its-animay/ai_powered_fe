@@ -68,7 +68,7 @@ import NavBar from '../components/NavBar.vue';
         membership_type: this.membershipType
         
     };
-        axios.post('http://https://7ac9-2401-4900-44c1-f24-e974-34fa-d08a-dda6.ngrok-free.app/auth/signup', userData)
+        axios.post('http://127.0.0.1:8080/auth/signup', userData)
         .then(() => { 
           this.setMessage('User Created successfully!', 'success');
 
